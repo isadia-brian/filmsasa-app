@@ -15,5 +15,10 @@ export default function RootLayout() {
     // Async font loading only occurs in development.
     return null;
   }
-  return <Stack />;
+  return (
+    <Stack>
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="+not-found" />
+    </Stack>
+  );
 }
