@@ -1,40 +1,23 @@
-import { useRef } from "react";
-import {
-  View,
-  Dimensions,
-  ImageSourcePropType,
-  useWindowDimensions,
-} from "react-native";
+import { useEffect, useRef, useState } from "react";
+import { View, useWindowDimensions } from "react-native";
 import { useSharedValue } from "react-native-reanimated";
 import Carousel, {
   ICarouselInstance,
   Pagination,
 } from "react-native-reanimated-carousel";
 import { SlideItem } from "./SlideItem";
-
-const filmData = [
-  {
-    title: "The Last Of Us",
-    image: require("@/assets/images/films/last_of_us_backdrop.jpg"),
-  },
-  {
-    title: "Anora",
-    image: require("@/assets/images/films/anora_backdrop.jpg"),
-  },
-  {
-    title: "Sinners",
-    image: require("@/assets/images/films/sinners_backdrop.jpg"),
-  },
-];
+import { fetch } from "expo/fetch";
 
 type FilmProps = {
   title: string;
-  image: ImageSourcePropType;
+  backdrop_image: string;
+  genres: string[];
 };
 
 export default function AnimatedCarousel() {
   const ref = useRef<ICarouselInstance>(null);
   const progress = useSharedValue<number>(0);
+  const [films, setFilms] = useState<FilmProps[]>([]);
 
   const { width, height } = useWindowDimensions();
 
@@ -49,6 +32,23 @@ export default function AnimatedCarousel() {
     });
   };
 
+  const getFilms = async () => {
+    try {
+      const response = await fetch("http://192.168.0.34:3001", {
+        headers: { Accept: "application/json" },
+      });
+
+      const data = await response.json();
+      setFilms(data);
+    } catch (error) {
+      console.log(`error: ${error}`);
+    }
+  };
+
+  useEffect(() => {
+    getFilms();
+  }, []);
+
   return (
     <View id="carousel-component">
       <Carousel
@@ -62,7 +62,7 @@ export default function AnimatedCarousel() {
         vertical={false}
         pagingEnabled={true}
         loop={true}
-        data={filmData}
+        data={films}
         onProgressChange={progress}
         renderItem={({ item, index }: { item: FilmProps; index: number }) => (
           <SlideItem key={index} item={item} />
@@ -70,11 +70,11 @@ export default function AnimatedCarousel() {
       />
       <Pagination.Basic
         progress={progress}
-        data={filmData}
+        data={films}
         dotStyle={{
           backgroundColor: "rgb(255,255,255)",
           borderRadius: 50,
-          width: 25,
+          width: 12,
           height: 4,
         }}
         activeDotStyle={{
