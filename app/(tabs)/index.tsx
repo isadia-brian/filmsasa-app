@@ -1,10 +1,11 @@
-import ThemedText from "@/components/ThemedText";
+import AnimatedCarousel from "@/components/AnimatedCarousel";
+//import ThemedText from "@/components/ThemedText";
 import { View } from "react-native";
 
 const HomeScreen = () => {
   return (
     <View>
-      <ThemedText>Home</ThemedText>
+      <AnimatedCarousel />
     </View>
   );
 };

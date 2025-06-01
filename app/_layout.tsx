@@ -9,6 +9,8 @@ export default function RootLayout() {
     PoppinsMedium: require("../assets/fonts/Poppins/Poppins-Medium.ttf"),
     PoppinsSemiBold: require("../assets/fonts/Poppins/Poppins-SemiBold.ttf"),
     PoppinsLight: require("../assets/fonts/Poppins/Poppins-Light.ttf"),
+    PoppinsBlack: require("../assets/fonts/Poppins/Poppins-Black.ttf"),
+    AquireBold: require("../assets/fonts/aquire/AquireBold.otf"),
   });
 
   if (!loaded) {
