@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { View, useWindowDimensions } from "react-native";
 import { useSharedValue } from "react-native-reanimated";
+import { getCarouselFilms } from "@/services/api";
 import Carousel, {
   ICarouselInstance,
   Pagination,
 } from "react-native-reanimated-carousel";
 import { SlideItem } from "./SlideItem";
-import { fetch } from "expo/fetch";
 
 type FilmProps = {
   title: string;
@@ -32,20 +32,15 @@ export default function AnimatedCarousel() {
     });
   };
 
-  const getFilms = async () => {
-    try {
-      const response = await fetch("http://192.168.0.34:3001", {
-        headers: { Accept: "application/json" },
-      });
-
-      const data = await response.json();
-      setFilms(data);
-    } catch (error) {
-      console.log(`error: ${error}`);
-    }
-  };
-
   useEffect(() => {
+    const getFilms = async () => {
+      const data = await getCarouselFilms();
+      if (Array.isArray(data)) {
+        setFilms(data);
+      } else {
+        setFilms([]);
+      }
+    };
     getFilms();
   }, []);
 
