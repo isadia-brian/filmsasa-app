@@ -1,5 +1,6 @@
 import { Stack } from "expo-router";
 import { useFonts } from "expo-font";
+import { StatusBar } from "expo-status-bar";
 import "@/global.css";
 
 export default function RootLayout() {
@@ -9,7 +10,6 @@ export default function RootLayout() {
     PoppinsMedium: require("../assets/fonts/Poppins/Poppins-Medium.ttf"),
     PoppinsSemiBold: require("../assets/fonts/Poppins/Poppins-SemiBold.ttf"),
     PoppinsLight: require("../assets/fonts/Poppins/Poppins-Light.ttf"),
-    PoppinsBlack: require("../assets/fonts/Poppins/Poppins-Black.ttf"),
     AquireBold: require("../assets/fonts/aquire/AquireBold.otf"),
   });
 
@@ -21,6 +21,7 @@ export default function RootLayout() {
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="+not-found" />
+      <StatusBar hidden={true} />
     </Stack>
   );
 }

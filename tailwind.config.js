@@ -11,7 +11,6 @@ module.exports = {
         PoppinsMedium: ["PoppinsMedium", "sans-serif"],
         PoppinsSemiBold: ["PoppinsSemiBold", "sans-serif"],
         PoppinsLight: ["PoppinsLight", "sans-serif"],
-        PoppinsBlack: ["PoppinsBlack", "sans-serif"],
         AquireBold: ["AquireBold", "sans-serif"],
       },
     },

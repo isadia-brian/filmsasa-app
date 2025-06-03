@@ -19,7 +19,7 @@ export default function ThemedText({
           ? styles.link
           : type === "subtitle"
           ? styles.subtitle
-          : "text-sm font-Poppins line-clamp-2"
+          : "text-xs font-Poppins line-clamp-1"
       }
       {...rest}
     />
@@ -29,7 +29,6 @@ export default function ThemedText({
 const styles = {
   default: `font-Poppins text-base`,
   title: "font-PoppinsBold text-2xl",
-
   link: "font-Poppins text-sm underline",
-  subtitle: "font-PoppinsMedium text-lg",
+  subtitle: "font-PoppinsSemiBold text-xl",
 };

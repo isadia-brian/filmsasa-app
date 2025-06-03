@@ -32,14 +32,15 @@ const MoviesScreen = () => {
         ) : (
           <View className="mt-5 flex-1">
             <FlatList
+              showsHorizontalScrollIndicator={false}
               data={movies}
               renderItem={({ item }) => <FilmCard {...item} />}
               keyExtractor={(item) => item.id.toString()}
               numColumns={3}
               columnWrapperStyle={{
                 justifyContent: "flex-start",
-                gap: 20,
-                paddingRight: 5,
+                gap: 10,
+
                 marginBottom: 10,
               }}
               className="mt-2 pb-32"
