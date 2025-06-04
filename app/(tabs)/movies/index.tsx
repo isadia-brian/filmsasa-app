@@ -32,7 +32,7 @@ const MoviesScreen = () => {
         ) : (
           <View className="mt-5 flex-1">
             <FlatList
-              showsHorizontalScrollIndicator={false}
+              showsVerticalScrollIndicator={false}
               data={movies}
               renderItem={({ item }) => <FilmCard {...item} />}
               keyExtractor={(item) => item.id.toString()}

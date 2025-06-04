@@ -17,7 +17,7 @@ const FilmDetails = () => {
     loading: movieLoading,
     error: movieError,
   } = useFetch(() =>
-    fetchFilmDetails({ mediaType: "movie", tmdbId: convertedId })
+    fetchFilmDetails({ mediaType: "movie", tmdbId: convertedId }),
   );
 
   return (

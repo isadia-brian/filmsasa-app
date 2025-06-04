@@ -41,3 +41,22 @@ export interface FilmDetails {
       | null;
   } | null;
 }
+
+export interface TrendingCardProps {
+  film: {
+    tmdbId: number;
+    posterImage: string;
+    title: string;
+    mediaType: "movie" | "tv";
+  };
+  index: number;
+}
+
+export interface DatabaseData {
+  backdrop_image: string;
+  title: string;
+  tmdb_id: number;
+  media_type: "movie" | "tv";
+  genres: string[];
+  poster_image: string;
+}

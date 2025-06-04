@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 import ThemedText from "./ThemedText";
 
 type CastCardProps = {
@@ -15,14 +15,14 @@ const CastCard = ({ name, profile_path, character }: CastCardProps) => {
           source={{
             uri: `https://image.tmdb.org/t/p/w185${profile_path}`,
           }}
-          className="h-24 w-24 rounded-full "
+          className="h-24 w-24 rounded-full border border-red-500"
           resizeMode="cover"
         />
       </View>
-      <View className="flex-col gap-2 mt-2 ">
+      <View className="flex-col  mt-2 ">
         <ThemedText
-          numberOfLines={1}
-          className="text-sm font-PoppinsMedium text-center  leading-none"
+          numberOfLines={2}
+          className="text-sm font-PoppinsMedium text-center h-[30px]  leading-none"
         >
           {name}
         </ThemedText>
