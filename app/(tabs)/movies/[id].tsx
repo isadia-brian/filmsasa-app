@@ -4,8 +4,14 @@ import ThemedView from "@/components/ThemedView";
 import { fetchFilmDetails } from "@/services/api";
 import useFetch from "@/services/useFetch";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { StarIcon } from "lucide-react-native";
-import { View, ScrollView, Image, FlatList } from "react-native";
+import { ChevronsLeft, StarIcon } from "lucide-react-native";
+import {
+  View,
+  ScrollView,
+  Image,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 
 const FilmDetails = () => {
   const { id } = useLocalSearchParams();
@@ -29,7 +35,7 @@ const FilmDetails = () => {
           paddingBottom: 80,
         }}
       >
-        <View className="flex-1">
+        <View className="flex-1 relative">
           <Image
             source={{
               uri: movie?.backdropImage
@@ -39,6 +45,12 @@ const FilmDetails = () => {
             className={`w-full h-[440px]`}
             resizeMode="cover"
           />
+          <TouchableOpacity
+            className="absolute left-4 flex items-center justify-center top-8 h-10 w-10 bg-white/50 rounded-full"
+            onPress={router.back}
+          >
+            <ChevronsLeft color={"black"} />
+          </TouchableOpacity>
         </View>
         <ThemedView>
           <View className="mb-1">

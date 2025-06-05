@@ -18,7 +18,7 @@ const TrendingCard = ({
           resizeMode="cover"
         />
 
-        <View className="absolute bottom-9 -left-3.5 px-2 py-1 rounded-full">
+        <View className="absolute bottom-9 -left-3.5 px-2 py-1 rounded-full z-20">
           <MaskedView
             maskElement={
               <Text className="font-PoppinsBold text-black text-6xl">
