@@ -3,12 +3,13 @@ import ThemedText from "@/components/ThemedText";
 import ThemedView from "@/components/ThemedView";
 import { fetchFilmDetails } from "@/services/api";
 import useFetch from "@/services/useFetch";
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { StarIcon } from "lucide-react-native";
 import { View, ScrollView, Image, FlatList } from "react-native";
 
 const FilmDetails = () => {
   const { id } = useLocalSearchParams();
+  const router = useRouter();
 
   const convertedId = Number(id);
 
@@ -28,7 +29,7 @@ const FilmDetails = () => {
           paddingBottom: 80,
         }}
       >
-        <View>
+        <View className="flex-1">
           <Image
             source={{
               uri: movie?.backdropImage
