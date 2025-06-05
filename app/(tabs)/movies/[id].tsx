@@ -99,7 +99,6 @@ const FilmDetails = () => {
                 <FlatList
                   data={movie.cast}
                   horizontal
-                  showsVerticalScrollIndicator={false}
                   showsHorizontalScrollIndicator={false}
                   renderItem={({ item }) => <CastCard {...item} />}
                   keyExtractor={(item) => item.name.toString()}
