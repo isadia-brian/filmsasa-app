@@ -60,3 +60,12 @@ export interface DatabaseData {
   genres: string[];
   poster_image: string;
 }
+
+export interface FeaturedCardProps {
+  film: {
+    tmdbId: number;
+    title: string;
+    posterImage: string;
+    mediaType?: "movie" | "tv";
+  };
+}

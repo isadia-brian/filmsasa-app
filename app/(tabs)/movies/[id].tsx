@@ -4,7 +4,7 @@ import ThemedView from "@/components/ThemedView";
 import { fetchFilmDetails } from "@/services/api";
 import useFetch from "@/services/useFetch";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { ChevronsLeft, StarIcon } from "lucide-react-native";
+import { StarIcon, CircleArrowLeft } from "lucide-react-native";
 import {
   View,
   ScrollView,
@@ -46,10 +46,10 @@ const FilmDetails = () => {
             resizeMode="cover"
           />
           <TouchableOpacity
-            className="absolute left-4 flex items-center justify-center top-8 h-10 w-10 bg-white/50 rounded-full"
+            className="absolute left-4 flex items-center justify-center top-8 h-10 w-10 bg-black/15  rounded-full"
             onPress={router.back}
           >
-            <ChevronsLeft color={"black"} />
+            <CircleArrowLeft size={30} color={"white"} strokeWidth={1.25} />
           </TouchableOpacity>
         </View>
         <ThemedView>

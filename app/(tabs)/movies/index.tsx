@@ -43,7 +43,7 @@ const MoviesScreen = () => {
 
                 marginBottom: 10,
               }}
-              className="mt-2 pb-32"
+              className="mt-2"
               scrollEnabled={false}
             />
           </View>
